@@ -6,8 +6,12 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/valterjrdev/sqledit.git"
+  },
   "author": "Valter Carneiro da Silva Junior - <valterjrdev@gmail.com>",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "body-parser": "^1.13.3",
     "ejs": "^2.3.3",
