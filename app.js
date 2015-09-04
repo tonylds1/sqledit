@@ -54,19 +54,35 @@
     var controller = require('./server/controller')(app);
 
     /**
-     * Pagina não encontrata 404
+     * Pagina não encontrada 404
      */
     var notfound = require('./server/error/404')(app);
 
     /**
-     * Inicialização do servidor
-     * @type {http.Server}
+     * Página de erro fatal 500
      */
-    var server = app.listen(3000, function () {
-        var host = server.address().address;
-        var port = server.address().port;
-        console.log('Host http://%s:%s', host, port);
+    var notfound = require('./server/error/404')(app);
+
+
+    app.get('orm').initialize(app.get('adapter'), function(error, models) {
+        if(error){
+            throw error
+        }
+
+        app.models = models.collections;
+        app.connections = models.connections;
+
+        /**
+         * Inicialização do servidor
+         * @type {http.Server}
+         */
+        var server = app.listen(3000, function () {
+            var host = server.address().address;
+            var port = server.address().port;
+            console.log('Host http://%s:%s', host, port);
+        });
+
+        return server;
     });
 
-    return server;
 })();

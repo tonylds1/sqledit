@@ -19,6 +19,10 @@
     "express-ejs-layouts": "^1.1.0",
     "express-session": "^1.11.3",
     "method-override": "^2.3.5",
-    "path": "^0.11.14"
+    "path": "^0.11.14",
+    "sails-mongo": "^0.11.2",
+    "sails-mysql": "^0.11.0",
+    "sails-postgresql": "^0.10.16",
+    "waterline": "^0.10.26"
   }
 }
