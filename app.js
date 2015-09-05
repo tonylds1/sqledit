@@ -66,7 +66,7 @@
 
     app.get('orm').initialize(app.get('adapter'), function(error, models) {
         if(error){
-            throw error
+            throw error;
         }
 
         app.models = models.collections;

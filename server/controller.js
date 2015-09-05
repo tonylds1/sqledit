@@ -10,7 +10,7 @@
         var path   = require('path');
         var dir    = path.join(path.dirname(__dirname), 'app/controller/');
 
-        //Controller Default
+        //Controller Console
         require(dir + 'console')(app);
 
         return app;
