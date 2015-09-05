@@ -1,0 +1,76 @@
+<div class="row">
+    <div class="col-xs-6">
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <form action="/query/run" method="post" data-target="console_01_output">
+                    <ul class="list-unstyled">
+                        <li class="form-group">
+                            <div class="row">
+                                <ul class="list-unstyled">
+                                    <li class="col-xs-1">
+                                        <h2>#01</h2>
+                                    </li>
+                                    <li class="col-xs-4">
+                                        <select name="database" class="form-control" required>
+                                            <option value="">Selecione o banco de dados</option>
+                                        </select>
+                                    </li>
+                                    <li class="col-xs-2">
+                                        <button type="submit" class="btn btn-default btn-success btn-block">Executar</button>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="form-group">
+                            <label class="sr-only" for="console_01">Console</label>
+                            <textarea name="query" class="console form-control" id="console_01" required></textarea>
+                        </li>
+                    </ul>
+                </form>
+                <div class="output table-responsive" id="console_01_output">
+                    <table clas="table table-striped table-bordered table-hover table-condensed">
+                        <thead></thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-xs-6">
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <form action="/query/run" method="post" data-target="console_02_output">
+                    <ul class="list-unstyled">
+                        <li class="form-group">
+                            <div class="row">
+                                <ul class="list-unstyled">
+                                    <li class="col-xs-1">
+                                        <h2>#02</h2>
+                                    </li>
+                                    <li class="col-xs-4">
+                                        <select name="database" class="form-control" required>
+                                            <option value="">Selecione o banco de dados</option>
+                                        </select>
+                                    </li>
+                                    <li class="col-xs-2">
+                                        <button type="submit" class="btn btn-default btn-success btn-block">Executar</button>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="form-group">
+                            <label class="sr-only" for="console_02">Console</label>
+                            <textarea name="query" class="console form-control" id="console_02" required></textarea>
+                        </li>
+                    </ul>
+                </form>
+                <div class="output table-responsive" id="console_02_output">
+                    <table clas="table table-striped table-bordered table-hover table-condensed">
+                        <thead></thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

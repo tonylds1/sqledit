@@ -14,7 +14,7 @@
          * @return {Object} response
          */
         app.get('/console', function (request, response) {
-            return response.render('default/index');
+            return response.render('console/index');
         });
 
         return app;

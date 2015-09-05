@@ -5,8 +5,39 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>SQL EDIT</title>
+    <link href="/css/dependencies/bootstrap.css" rel="stylesheet">
+    <link href="/js/lib/codemirror-5.6/lib/codemirror.css" rel="stylesheet">
+    <link href="/js/lib/codemirror-5.6/addon/hint/show-hint.css" rel="stylesheet">
+    <link href="/css/main.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
   </head>
   <body>
-      <%- body %>
+    <main>
+      <div class="container-fluid">
+        <%- body %>
+
+        <footer class="navbar navbar-default navbar-fixed-bottom text-center">
+            <div class="container-fluid">
+                <p>Sqledit © 2015</p>
+                <a href="https://github.com/valterjrdev/sqledit">Github</a>
+            </div>
+        </footer>
+      </div>
+
+    </main>
+    <script src="/js/dependencies/jquery-1.11.3.js"></script>
+    <script src="/js/dependencies/bootstrap.js"></script>
+    <script src="/js/lib/codemirror-5.6/lib/codemirror.js"></script>
+    <script src="/js/lib/codemirror-5.6/mode/sql/sql.js"></script>
+    <script src="/js/lib/codemirror-5.6/addon/selection/active-line.js"></script>
+    <script src="/js/lib/codemirror-5.6/addon/hint/show-hint.js"></script>
+    <script src="/js/lib/codemirror-5.6/addon/hint/sql-hint.js"></script>
+    <script src="/js/console.js"></script>
   </body>
 </html>

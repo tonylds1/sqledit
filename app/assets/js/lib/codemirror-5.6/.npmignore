@@ -1,0 +1,10 @@
+/node_modules
+/assets/js/lib/codemirror-5.6/demo
+/doc
+/test
+/test*.html
+/index.html
+/mode/*/*test.js
+/mode/*/*.html
+/mode/index.html
+.*

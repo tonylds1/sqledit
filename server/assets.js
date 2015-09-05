@@ -14,7 +14,7 @@
         var dir = path.join(path.dirname(__dirname), 'app/assets/');
 
         app.use(compression());
-        app.use(minify({cache:  path.join(path.dirname(__dirname), 'cache')}));
+        app.use(minify());
         app.use(express.static(dir));
 
         return app;
