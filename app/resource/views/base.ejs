@@ -8,6 +8,7 @@
     <link href="/css/dependencies/bootstrap.css" rel="stylesheet">
     <link href="/js/lib/codemirror-5.6/lib/codemirror.css" rel="stylesheet">
     <link href="/js/lib/codemirror-5.6/addon/hint/show-hint.css" rel="stylesheet">
+    <link href="/css/dependencies/sweetalert.css" rel="stylesheet">
     <link href="/css/main.css" rel="stylesheet">
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -24,31 +25,31 @@
           <div class="container-fluid">
               <ul class="menu-top list-unstyled list-inline pull-left">
                 <li>
-                  <a href="" class="btn btn-primary btn-block">
+                  <a href="/access" class="link-page btn btn-primary btn-block">
                     <span class="glyphicon glyphicon-list"></span>&nbsp;
                     Lista de Acesso
                   </a>
                 </li>
                 <li>
-                  <a href="" class="btn btn-primary btn-block">
+                  <a href="/user" class="link-page btn btn-primary btn-block">
                     <span class="glyphicon glyphicon-user"></span>&nbsp;
                     Usuários
                   </a>
                 </li>
                 <li>
-                  <a href="" class="btn btn-primary btn-block">
+                  <a href="" class="link-page btn btn-primary btn-block">
                     <span class="glyphicon glyphicon-tag"></span>&nbsp;
                     Tag
                   </a>
                 </li>
                 <li>
-                  <a href="" class="btn btn-primary btn-block">
+                  <a href="" class="link-page btn btn-primary btn-block">
                     <span class="glyphicon glyphicon-menu-hamburger"></span>&nbsp;
                     Categorias
                   </a>
                 </li>
                 <li>
-                  <a href="" class="btn btn-primary btn-block">
+                  <a href="" class="link-page btn btn-primary btn-block">
                     <span class="glyphicon glyphicon-play-circle"></span>&nbsp;
                     Query
                   </a>
@@ -58,7 +59,7 @@
               <ul class="menu-top list-unstyled list-inline pull-right">
                 <li>
                   <a href="" class="btn btn-danger pull-right">
-                    <span class="glyphicon glyphicon-remove-circle"></span>&nbsp;
+                    <span class="glyphicon glyphicon-log-out"></span>&nbsp;
                     Sair
                   </a>
                 </li>
@@ -68,8 +69,22 @@
           </div>
         </nav>
       </header>
+
       <div class="container-fluid">
         <%- body %>
+      </div>
+
+      <div id="wait-message" class="modal fade" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-hidden="true" style="padding-top:15%; overflow-y:visible;">
+          <div class="modal-dialog modal-m">
+              <div class="modal-content">
+                  <div class="modal-header"><h4 style="margin:0;">Processando requisiçao</h4></div>
+                  <div class="modal-body">
+                      <div class="progress progress-striped active" style="margin-bottom:0;">
+                          <div class="progress-bar" style="width: 100%"></div>
+                      </div>
+                  </div>
+              </div>
+          </div>
       </div>
     </main>
     <script src="/js/dependencies/jquery-1.11.3.js"></script>
@@ -79,6 +94,9 @@
     <script src="/js/lib/codemirror-5.6/addon/selection/active-line.js"></script>
     <script src="/js/lib/codemirror-5.6/addon/hint/show-hint.js"></script>
     <script src="/js/lib/codemirror-5.6/addon/hint/sql-hint.js"></script>
+    <script src="/js/lib/sweetalert/sweetalert.js"></script>
+    <script src="/js/link.js"></script>
     <script src="/js/console.js"></script>
+    <script src="/js/form-ajax.js"></script>
   </body>
 </html>

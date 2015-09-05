@@ -12,6 +12,8 @@
 
         //Controller Console
         require(dir + 'console')(app);
+        //Controller Access
+        require(dir + 'access')(app);
 
         return app;
     }

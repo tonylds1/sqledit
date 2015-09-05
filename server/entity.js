@@ -13,6 +13,9 @@
         //Entity User
         require(dir + 'user')(app);
 
+        //Entity Access
+        require(dir + 'access')(app);
+
         return app;
     }
 
