@@ -20,7 +20,8 @@
                 countries: {name: null, population: null, size: null}
             }},
             styleActiveLine: true,
-            lineWrapping: true
+            lineWrapping: true,
+            thema: 'monokai'
         });
     });
 

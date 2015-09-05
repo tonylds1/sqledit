@@ -10,13 +10,11 @@
         var layout = require('express-ejs-layouts');
         var path   = require('path');
 
-        app.set('view cache', true);
+        //app.set('view cache', true);
         app.set('views', path.join(path.dirname(__dirname), 'app/resource/views'));
         app.set('view engine', 'ejs');
         app.set('layout', 'base');
         app.use(layout);
-
-
 
         return app;
     }
