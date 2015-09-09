@@ -28,6 +28,9 @@
                     password: 'root',
                     database: 'sqlpad'
                 }
+            },
+            defaults: {
+                migrate: 'alter'
             }
         };
 

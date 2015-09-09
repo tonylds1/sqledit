@@ -2,13 +2,13 @@
     'use strict';
 
     /**
-     * @module app/entity/entity
+     * @module app/entity/category
      * @param {Object} app - instancia da app
      * @return {Object} app - instancia da app
      */
     module.exports = function (app) {
         var model = app.get('waterline').Collection.extend({
-            identity: 'user',
+            identity: 'category',
             connection: 'default',
             attributes: {
                 id: {
@@ -17,18 +17,12 @@
                     primaryKey: true,
                     unique: true
                 },
-                username: {
+                name: {
                     type: 'string',
                     required: true
                 },
-                password: {
-                    type: 'string',
-                    required: true
-                },
-                admin: {
-                    type: 'integer',
-                    required: true,
-                    defaultsTo: 0
+                description: {
+                    type: 'string'
                 }
             }
         });

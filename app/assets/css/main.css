@@ -4,6 +4,11 @@ html, body {
     font-size: 13px;
 }
 
+h2{
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
 select, input, textarea{
     text-transform: uppercase;
 }

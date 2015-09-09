@@ -6,6 +6,8 @@
      * @param {Object} app - instancia da app
      */
     module.exports = function (app) {
+        var bcrypt = require('bcrypt');
+        app.set('bcrypt', bcrypt);
 
         /**
          * @param {Object} request
@@ -14,9 +16,11 @@
          * @returns next
          */
         app.use(function (request, response, next) {
-            response.locals.appName = 'Sql Edit';
-            response.locals.appVersion = '1.0.0';
-            response.locals.moment = require('moment');
+            response.locals.app = {
+                name: 'Sqledit',
+                version: '1.0.0'
+            };
+
             next();
         });
 

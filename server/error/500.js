@@ -17,7 +17,7 @@
 
             // Response html
             if (request.accepts('html')) {
-                return response.render('error/404', { url: request.url });
+                return response.render('error/500', { url: request.url });
             }
 
             //Response Json

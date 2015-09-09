@@ -1,0 +1,37 @@
+<div class="row">
+    <div class="col-center col-xs-3">
+        <div class="panel panel-default">
+            <div class="panel-heading">Acesso restrito</div>
+            <div class="panel-body">
+                <%- include '/../../message.ejs %>
+                <form action="/user/auth" method="post">
+                    <div class="row">
+                        <dl class="form-group col-xs-12">
+                            <dt>
+                                <label for="username">Usuário</label>
+                            </dt>
+                            <dd>
+                                <input name="username" type="text" class="form-control" id="username" required>
+                            </dd>
+                        </dl>
+                        <dl class="form-group col-xs-12">
+                            <dt>
+                                <label for="password">Senha</label>
+                            </dt>
+                            <dd>
+                                <input name="password" type="password" class="form-control" id="password" required>
+                            </dd>
+                        </dl>
+                        <dl class="form-group col-xs-12">
+                            <button type="submit" class="btn btn-success btn-block">
+                                <span class="glyphicon glyphicon-lock"></span>
+                            </button>
+                            <a href="/user/signup" class="btn btn-primary btn-block">Cadastre-se</a>
+                        </dl>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

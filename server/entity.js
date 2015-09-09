@@ -16,6 +16,9 @@
         //Entity Access
         require(dir + 'access')(app);
 
+        //Entity Category
+        require(dir + 'category')(app);
+
         return app;
     }
 

@@ -2,7 +2,7 @@
     'use strict';
 
     /**
-     * @module server/access
+     * @module app/entity/access
      * @param {Object} app - instancia da app
      * @return {Object} app - instancia da app
      */
@@ -10,7 +10,6 @@
         var model = app.get('waterline').Collection.extend({
             identity: 'access',
             connection: 'default',
-
             attributes: {
                 id: {
                     type: 'integer',

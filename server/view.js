@@ -16,6 +16,17 @@
         app.set('layout', 'base');
         app.use(layout);
 
+        /**
+         * @param {Object} request
+         * @param {Object} response
+         * @param {Object} next
+         * @returns next
+         */
+        app.use(function (request, response, next) {
+            response.locals.moment = require('moment');
+            next();
+        });
+
         return app;
     }
 

@@ -13,6 +13,7 @@
   "author": "Valter Carneiro da Silva Junior - <valterjrdev@gmail.com>",
   "license": "MIT",
   "dependencies": {
+    "bcrypt": "^0.8.5",
     "body-parser": "^1.13.3",
     "compression": "^1.5.2",
     "ejs": "^2.3.3",

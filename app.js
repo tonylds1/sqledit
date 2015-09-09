@@ -61,7 +61,7 @@
     /**
      * Página de erro fatal 500
      */
-    var notfound = require('./server/error/404')(app);
+    var notfound = require('./server/error/500')(app);
 
 
     app.get('orm').initialize(app.get('adapter'), function(error, models) {
