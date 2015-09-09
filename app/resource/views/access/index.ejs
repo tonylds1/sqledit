@@ -1,95 +1,41 @@
 <div class="row">
-    <div class="col-xs-12">
+    <div class="col-center col-xs-12">
         <div class="panel panel-default">
+            <div class="panel-heading">
+                <ol class="breadcrumb">
+                    <li><a href="/access">Lista de acesso</a></li>
+                </ol>
+            </div>
             <div class="panel-body">
-                <div class="row">
-                    <ul class="list-unstyled">
-                        <li class="col-xs-3">
-                            <a href="" class="btn btn-default btn-success" data-toggle="modal" data-target="#add">
-                            <span class="glyphicon glyphicon-plus"></span>
-                             &nbsp; Cadastrar
-                            </a>
-                        </li>
-
-                        <li class="col-xs-9">
-                            <form action="/access">
-                                <div id="custom-search-input">
-                                    <div class="input-group col-md-4">
-                                        <input type="text" class="  search-query form-control" placeholder="Buscar" />
-                                        <span class="input-group-btn">
-                                            <button class="btn btn-danger" type="button">
-                                                <span class=" glyphicon glyphicon-search"></span>
-                                            </button>
-                                        </span>
-                                    </div>
-                                </div>
-                            </form>
-                        </li>
-                    </ul>
-                </div>
-
-                <div class="modal fade" id="add">
-                  <div class="modal-dialog modal-sm">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                          <button type="button" class="close" data-dismiss="modal" >
-                            <span >&times;</span>
-                          </button>
-                          <h2 class="modal-title" id="myModalLabel">Cadastro</h2>
-                        </div>
-                        <div class="modal-body">
-                            <form action="/access/create" method="post" class="form-ajax">
-                                <ul class="list-unstyled">
-                                    <li class="form-group">
-                                        <label for="username">Usuário</label>
-                                        <input name="username" type="text" class="form-control" id="username">
-                                    </li>
-                                    <li class="form-group">
-                                        <label for="active">Liberar acesso</label>
-                                        <select name="active" class="form-control">
-                                            <option value="1"> Sim </option>
-                                            <option value="0"> Não </option>
-                                        </select>
-                                    </li>
-                                    <li class="form-group">
-                                        <button type="submit" class="btn btn-default btn-block btn-success">
-                                            <span class="glyphicon glyphicon-ok"></span>
-                                        </button>
-                                    </li>
-                                </ul>
-                            </form>
-                        </div>
+                <%- include '/../../message.ejs %>
+                <nav class="row">
+                    <div class="col-xs-12">
+                        <ul class="list-unstyled list-inline">
+                            <li> <a href="/access/add" class="btn btn-primary">Cadastrar</a> </li>
+                        </ul>
                     </div>
-                  </div>
-                </div>
+                </nav>
 
-
-                <br />
-                <table class="table table-striped table-hover table-condensed">
-                    <thead>
+                <div class="table-responsive">
+                    <table class="table table-hover table-condensed">
+                        <thead>
                         <tr>
                             <th>Usuário</th>
-                            <th>Situação</th>
                             <th></th>
                         </tr>
-                    </thead>
-                    <tbody>
+                        </thead>
+                        <tbody>
                         <% for(var i=0; i < grid.length; i++) { %>
-                        <tr  <%if (grid[i].active == 0) { %> class="danger" <% }else{ %> class="success" <% } %>>
+                        <tr>
                             <td><%= grid[i].username %></td>
-                            <td>
-
-                            <%if (grid[i].active == 0) { %> Acesso Bloqueado <% }else{ %> Acesso Permitido <% } %>
-                            </td>
                             <td class="text-right">
-                                <a href="" class="btn btn-primary" title="Visualizar registro"> <span class="glyphicon glyphicon-eye-open"></span> </a>
-                                <a href="" class="btn btn-success" title="Alterar registro"> <span class="glyphicon glyphicon-edit"></span> </a>
-                                <a href="" class="btn btn-danger"  title="Excluir registro"> <span class="glyphicon glyphicon-remove"></span> </a>
+                                <a href="/access/view/<%= grid[i].id %>" class="btn btn-success" title="Visualizar registro"> <span class="glyphicon glyphicon-eye-open"></span> </a>
                             </td>
                         </tr>
                         <% } %>
-                    </tbody>
-                </table>
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
     </div>

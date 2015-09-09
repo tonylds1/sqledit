@@ -1,18 +1,110 @@
-body{
-    padding-top: 70px;
-    padding-bottom: 70px;
+html, body {
+    height: 100%;
+    text-transform: uppercase;
+    font-size: 13px;
 }
 
-h1, h2, h3, h4, h5, h6{
-    margin: 0px;
+select, input, textarea{
+    text-transform: uppercase;
 }
 
+input[type=radio]{
+    margin-top: 1px;
+}
+
+.border-top{
+    border-top: 1px dotted #ccc;
+    padding-top: 10px;
+
+}
+
+.container{
+    max-width: 850px;
+}
+
+.panel-default > .panel-heading{
+    text-transform: uppercase;
+    font-weight: bold;
+    color: #424242;
+    font-size: 13px;
+}
+
+.breadcrumb {
+    padding: 0px 0px;
+    margin-bottom: 0px;
+}
+.table{
+    margin-top: 15px;
+}
+
+.table > tbody > tr > td{
+    vertical-align: middle;
+}
+
+.btn-group{
+    margin-bottom: 20px;
+}
+
+.navbar-form{
+    padding: 0px;
+}
+
+.glyphicon-backward, .glyphicon-edit{
+    margin-right: 5px;
+}
+
+.btn-primary{
+    background-color: #333;
+    border: 0px;
+    text-transform: uppercase;
+    font-size: 13px;
+}
+
+.btn-success{
+    background-color: #088A29;
+    border: 0px;
+    text-transform: uppercase;
+    font-size: 13px;
+}
+
+.btn-danger{
+    border: 0px;
+    text-transform: uppercase;
+    font-size: 13px;
+}
+
+form fieldset legend{
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 5px;
+    padding-bottom: 2px;
+    color: #424242;
+}
+
+.form-group label{
+    text-transform: uppercase;
+    font-size: 12px;
+    color: #6E6E6E;
+}
+
+.form-group input{
+    border-radius: 0px;
+}
+
+
+/* FORM LOGIN */
+.form-signin{
+    max-width: 350px;
+    margin: 20px auto;
+}
 
 
 /* Custom */
-.menu-top{
-    padding-top: 10px;
+.col-center{
+    margin: 0px auto;
+    float: none;
 }
+
 
 .CodeMirror {
     height: 400px;
@@ -26,40 +118,3 @@ h1, h2, h3, h4, h5, h6{
     overflow: auto;
 }
 
-#custom-search-input {
-    margin:0;
-    padding: 0;
-}
-
-#custom-search-input .search-query {
-    padding-right: 3px;
-    padding-right: 4px \9;
-    padding-left: 3px;
-    padding-left: 4px \9;
-    /* IE7-8 doesn't have border-radius, so don't indent the padding */
-
-    margin-bottom: 0;
-    -webkit-border-radius: 3px;
-    -moz-border-radius: 3px;
-    border-radius: 3px;
-}
-
-#custom-search-input button {
-    border: 0;
-    background: none;
-    /** belows styles are working good */
-    padding: 2px 5px;
-    margin-top: 2px;
-    position: relative;
-    left: -28px;
-    /* IE7-8 doesn't have border-radius, so don't indent the padding */
-    margin-bottom: 0;
-    -webkit-border-radius: 3px;
-    -moz-border-radius: 3px;
-    border-radius: 3px;
-    color:#D9230F;
-}
-
-.search-query:focus + button {
-    z-index: 3;
-}

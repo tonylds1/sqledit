@@ -1,102 +1,88 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>SQL EDIT</title>
-    <link href="/css/dependencies/bootstrap.css" rel="stylesheet">
-    <link href="/js/lib/codemirror-5.6/lib/codemirror.css" rel="stylesheet">
-    <link href="/js/lib/codemirror-5.6/addon/hint/show-hint.css" rel="stylesheet">
-    <link href="/css/dependencies/sweetalert.css" rel="stylesheet">
-    <link href="/css/main.css" rel="stylesheet">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>TLP</title>
 
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
-  </head>
-  <body>
-    <main>
-      <header>
-        <nav class="navbar navbar-default navbar-fixed-top">
-          <div class="container-fluid">
-              <ul class="menu-top list-unstyled list-inline pull-left">
-                <li>
-                  <a href="/access" class="link-page btn btn-primary btn-block">
-                    <span class="glyphicon glyphicon-list"></span>&nbsp;
-                    Lista de Acesso
-                  </a>
-                </li>
-                <li>
-                  <a href="/user" class="link-page btn btn-primary btn-block">
-                    <span class="glyphicon glyphicon-user"></span>&nbsp;
-                    Usuários
-                  </a>
-                </li>
-                <li>
-                  <a href="" class="link-page btn btn-primary btn-block">
-                    <span class="glyphicon glyphicon-tag"></span>&nbsp;
-                    Tag
-                  </a>
-                </li>
-                <li>
-                  <a href="" class="link-page btn btn-primary btn-block">
-                    <span class="glyphicon glyphicon-menu-hamburger"></span>&nbsp;
-                    Categorias
-                  </a>
-                </li>
-                <li>
-                  <a href="" class="link-page btn btn-primary btn-block">
-                    <span class="glyphicon glyphicon-play-circle"></span>&nbsp;
-                    Query
-                  </a>
-                </li>
+  <!--STYLES-->
+  <link href="/css/dependencies/bootstrap.css" rel="stylesheet">
+  <link href="/js/lib/codemirror-5.6/lib/codemirror.css" rel="stylesheet">
+  <link href="/js/lib/codemirror-5.6/addon/hint/show-hint.css" rel="stylesheet">
+  <link href="/css/main.css" rel="stylesheet">
+  <!--STYLES END-->
+
+  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+  <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<header>
+  <nav class="navbar navbar-default navbar-static-top">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"  aria-controls="navbar">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+        </div>
+
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" >
+                <span class="glyphicon glyphicon-sort" ></span>
+                Controle de acesso
+                <span class="caret"></span>
+              </a>
+              <ul class="dropdown-menu" role="menu">
+                <li><a href="/access">Lista de acesso</a></li>
+                <li><a href="/user">Usuários</a></li>
               </ul>
-
-              <ul class="menu-top list-unstyled list-inline pull-right">
-                <li>
-                  <a href="" class="btn btn-danger pull-right">
-                    <span class="glyphicon glyphicon-log-out"></span>&nbsp;
-                    Sair
-                  </a>
-                </li>
-              </ul>
-
-
-          </div>
-        </nav>
-      </header>
-
-      <div class="container-fluid">
-        <%- body %>
+            </li>
+          </ul>
+        </div>
       </div>
+    </div>
+  </nav>
+</header>
 
-      <div id="wait-message" class="modal fade" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-hidden="true" style="padding-top:15%; overflow-y:visible;">
-          <div class="modal-dialog modal-m">
-              <div class="modal-content">
-                  <div class="modal-header"><h4 style="margin:0;">Processando requisiçao</h4></div>
-                  <div class="modal-body">
-                      <div class="progress progress-striped active" style="margin-bottom:0;">
-                          <div class="progress-bar" style="width: 100%"></div>
-                      </div>
-                  </div>
-              </div>
-          </div>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-lg-12">
+      <%- body %>
+    </div>
+  </div>
+</div>
+
+<div id="wait-message" class="modal fade" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog"  style="padding-top:15%; overflow-y:visible;">
+  <div class="modal-dialog modal-m">
+    <div class="modal-content">
+      <div class="modal-header"><h4 style="margin:0;">Aguarde enquanto processamos sua solicitação</h4></div>
+      <div class="modal-body">
+        <div class="progress progress-striped active" style="margin-bottom:0;">
+          <div class="progress-bar" style="width: 100%"></div>
+        </div>
       </div>
-    </main>
-    <script src="/js/dependencies/jquery-1.11.3.js"></script>
-    <script src="/js/dependencies/bootstrap.js"></script>
-    <script src="/js/lib/codemirror-5.6/lib/codemirror.js"></script>
-    <script src="/js/lib/codemirror-5.6/mode/sql/sql.js"></script>
-    <script src="/js/lib/codemirror-5.6/addon/selection/active-line.js"></script>
-    <script src="/js/lib/codemirror-5.6/addon/hint/show-hint.js"></script>
-    <script src="/js/lib/codemirror-5.6/addon/hint/sql-hint.js"></script>
-    <script src="/js/lib/sweetalert/sweetalert.js"></script>
-    <script src="/js/link.js"></script>
-    <script src="/js/console.js"></script>
-    <script src="/js/form-ajax.js"></script>
-  </body>
+    </div>
+  </div>
+</div>
+
+<script src="/js/dependencies/jquery-1.11.3.js"></script>
+<script src="/js/dependencies/bootstrap.js"></script>
+<script src="/js/lib/codemirror-5.6/lib/codemirror.js"></script>
+<script src="/js/lib/codemirror-5.6/mode/sql/sql.js"></script>
+<script src="/js/lib/codemirror-5.6/addon/selection/active-line.js"></script>
+<script src="/js/lib/codemirror-5.6/addon/hint/show-hint.js"></script>
+<script src="/js/lib/codemirror-5.6/addon/hint/sql-hint.js"></script>
+<script src="/js/lib/sweetalert/sweetalert.js"></script>
+<script src="/js/link.js"></script>
+<script src="/js/console.js"></script>
+</body>
 </html>

@@ -1,0 +1,13 @@
+<% if (messages.success) { %>
+<div class="alert alert-success">
+    <span class="glyphicon glyphicon-ok"></span>
+    <%= messages.success %>
+</div>
+<% } %>
+
+<% if (messages.danger) { %>
+<div class="alert alert-danger">
+    <span class="glyphicon glyphicon-exclamation-sign"></span>
+    <%= messages.danger %>
+</div>
+<% } %>

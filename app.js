@@ -14,6 +14,11 @@
     app.use(methodOverride());
 
     /**
+     * Configurações de sessão
+     */
+    var session = require('./server/session')(app);
+
+    /**
      * Logo de erros do servidor
      */
     var error = require('./server/error')(app);
@@ -22,11 +27,6 @@
      * Configurações padrão
      */
     var boostrap = require('./server/bootstrap')(app);
-
-    /**
-     * Configurações de sessão
-     */
-    var session = require('./server/session')(app);
 
     /**
      * Configurações do banco de dados

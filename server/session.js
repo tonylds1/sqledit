@@ -7,16 +7,15 @@
      */
     module.exports = function (app) {
         var session = require('express-session');
+        var flash = require('express-flash');
 
         app.set('trust proxy', 1);
         app.use(session({
             secret: '11b120274fc8474aa312b5e46c473aa3',
             resave: false,
-            saveUninitialized: true,
-            cookie: {
-                secure: true
-            }
+            saveUninitialized: true
         }));
+        app.use(flash());
 
         return app;
     }

@@ -1,0 +1,56 @@
+<div class="row">
+    <div class="col-center col-xs-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <ol class="breadcrumb">
+                    <li><a href="/access">Lista de acesso</a></li>
+                    <li class="active">Visualizar</li>
+                </ol>
+            </div>
+            <div class="panel-body">
+                <div class="row">
+                    <dl class="col-xs-4">
+                        <dt>
+                            usuário
+                        </dt>
+                        <dd>
+                            <%= model.username %>
+                        </dd>
+                    </dl>
+
+                    <dl class="col-xs-4">
+                        <dt>
+                            Data de cadastro
+                        </dt>
+                        <dd>
+                            <%= moment(model.createdAt).format('L') %>
+                        </dd>
+                    </dl>
+
+                    <dl class="col-xs-4">
+                        <dt>
+                            Data de atualização
+                        </dt>
+                        <dd>
+                            <%= moment(model.updatedAt).format('L') %>
+                        </dd>
+                    </dl>
+
+                    <dl class="form-group col-xs-12">
+                        <dd class="border-top">
+                            <a href="/access" class="pull-left btn btn-primary"><span class="glyphicon glyphicon-backward"></span> Voltar</a>
+                            <ul class="pull-right list-unstyled list-inline">
+                                <li>
+                                    <a href="/access/edit/<%= model.id %>" class=" btn btn-primary"><span class="glyphicon glyphicon-edit"></span> Editar</a>
+                                </li>
+                                <li>
+                                    <a href="/access/remove/<%= model.id %>" class=" btn btn-danger"><span class="glyphicon glyphicon-remove"></span> Excluir</a>
+                                </li>
+                            </ul>
+                        </dd>
+                    </dl>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

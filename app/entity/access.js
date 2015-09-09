@@ -21,10 +21,6 @@
                 username: {
                     type: 'string',
                     required: true
-                },
-                active: {
-                    type: 'integer',
-                    required: true
                 }
             }
         });
