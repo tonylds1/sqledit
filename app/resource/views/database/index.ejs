@@ -1,0 +1,48 @@
+<div class="row">
+    <div class="col-center col-xs-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <ol class="breadcrumb">
+                    <li><a href="/database">Banco de Dados</a></li>
+                </ol>
+            </div>
+            <div class="panel-body">
+                <%- include '/../../message.ejs %>
+                <nav class="row">
+                    <div class="col-xs-12">
+                        <ul class="list-unstyled list-inline">
+                            <li> <a href="/database/add" class="btn btn-primary">Cadastrar</a> </li>
+                        </ul>
+                    </div>
+                </nav>
+
+                <div class="table-responsive">
+                    <table class="table table-hover table-condensed">
+                        <thead>
+                        <tr>
+                            <th>Nome</th>
+                            <th>Host</th>
+                            <th>Porta</th>
+                            <th>Banco</th>
+                            <th></th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <% for(var i=0; i < grid.length; i++) { %>
+                        <tr>
+                            <td><%= grid[i].name %></td>
+                            <td><%= grid[i].host %></td>
+                            <td><%= grid[i].porta %></td>
+                            <td><%= grid[i].db %></td>
+                            <td class="text-right">
+                                <a href="/database/view/<%= grid[i].id %>" class="btn btn-success" title="Visualizar registro"> <span class="glyphicon glyphicon-eye-open"></span> </a>
+                            </td>
+                        </tr>
+                        <% } %>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

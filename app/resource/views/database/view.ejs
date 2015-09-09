@@ -1,0 +1,108 @@
+<div class="row">
+    <div class="col-center col-xs-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <ol class="breadcrumb">
+                    <li><a href="/database">Banco de Dados</a></li>
+                    <li class="active">Visualizar</li>
+                </ol>
+            </div>
+            <div class="panel-body">
+                <div class="row">
+                    <dl class="col-xs-2">
+                        <dt>
+                            Nome
+                        </dt>
+                        <dd>
+                            <%= model.name %>
+                        </dd>
+                    </dl>
+                    <dl class="col-xs-2">
+                        <dt>
+                            Host
+                        </dt>
+                        <dd>
+                            <%= model.host %>
+                        </dd>
+                    </dl>
+                    <dl class="col-xs-2">
+                        <dt>
+                            Porta
+                        </dt>
+                        <dd>
+                            <%= model.port %>
+                        </dd>
+                    </dl>
+                    <dl class="col-xs-2">
+                        <dt>
+                            Usuário
+                        </dt>
+                        <dd>
+                            <%= model.user %>
+                        </dd>
+                    </dl>
+                    <dl class="col-xs-2">
+                        <dt>
+                            Senha
+                        </dt>
+                        <dd>
+                            <%= model.pass %>
+                        </dd>
+                    </dl>
+                    <dl class="col-xs-2">
+                        <dt>
+                            Banco
+                        </dt>
+                        <dd>
+                            <%= model.db %>
+                        </dd>
+                    </dl>
+                </div>
+
+                <div class="row">
+                    <dl class="col-xs-4">
+                        <dt>
+                            Adapter
+                        </dt>
+                        <dd>
+                            <%= model.driver %>
+                        </dd>
+                    </dl>
+                    <dl class="col-xs-4">
+                        <dt>
+                            Data de cadastro
+                        </dt>
+                        <dd>
+                            <%= moment(model.createdAt).format('L') %>
+                        </dd>
+                    </dl>
+
+                    <dl class="col-xs-4">
+                        <dt>
+                            Data de atualização
+                        </dt>
+                        <dd>
+                            <%= moment(model.updatedAt).format('L') %>
+                        </dd>
+                    </dl>
+                </div>
+
+                <div class="row">
+                    <dl class="form-group col-xs-12">
+                        <dd class="border-top">
+                            <a href="/database" class="pull-left btn btn-primary"><span class="glyphicon glyphicon-backward"></span> Voltar</a>
+                            <ul class="pull-right list-unstyled list-inline">
+                                <li>
+                                    <a href="/database/edit/<%= model.id %>" class=" btn btn-primary"><span class="glyphicon glyphicon-edit"></span> Editar</a>
+                                </li>
+                                <li>
+                                    <a href="/database/remove/<%= model.id %>" class=" btn btn-danger"><span class="glyphicon glyphicon-remove"></span> Excluir</a>
+                                </li>
+                            </ul>
+                        </dd>
+                    </dl>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

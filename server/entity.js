@@ -25,6 +25,9 @@
         //Entity Query
         require(dir + 'query')(app);
 
+        //Entity Database
+        require(dir + 'database')(app);
+
         return app;
     }
 

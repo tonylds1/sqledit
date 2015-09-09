@@ -28,6 +28,9 @@
         //Controller Query
         require(dir + 'query')(app);
 
+        //Controller Database
+        require(dir + 'database')(app);
+
         return app;
     }
 

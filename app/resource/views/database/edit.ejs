@@ -1,0 +1,88 @@
+<div class="row">
+    <div class="col-center col-xs-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <ol class="breadcrumb">
+                    <li><a href="/database/">Banco de dados</a></li>
+                    <li><a href="/database/view/<%= model.id %>">Visualizar</a></li>
+                    <li class="active">Editar</li>
+                </ol>
+            </div>
+            <div class="panel-body">
+                <%- include '/../../message.ejs %>
+                <form action="/database/update" method="post">
+                    <div class="row">
+                        <dl class="form-group col-xs-4">
+                            <dt>
+                                <label for="name">Nome</label>
+                            </dt>
+                            <dd>
+                                <input name="name" type="text" value="<%= model.name %>" class="form-control" id="name" required>
+                                <input type="hidden" name="id" value="<%= model.id %>"
+                            </dd>
+                        </dl>
+                        <dl class="form-group col-xs-4">
+                            <dt>
+                                <label for="host">Host</label>
+                            </dt>
+                            <dd>
+                                <input name="host" type="text" value="<%= model.host %>" class="form-control" id="host" required>
+                            </dd>
+                        </dl>
+                        <dl class="form-group col-xs-4">
+                            <dt>
+                                <label for="port">Porta</label>
+                            </dt>
+                            <dd>
+                                <input name="port" type="text" value="<%= model.port %>" class="form-control" id="port" required>
+                            </dd>
+                        </dl>
+                        <dl class="form-group col-xs-4">
+                            <dt>
+                                <label for="user">Usuário</label>
+                            </dt>
+                            <dd>
+                                <input name="user" type="text" value="<%= model.user %>" class="form-control" id="user" required>
+                            </dd>
+                        </dl>
+                        <dl class="form-group col-xs-4">
+                            <dt>
+                                <label for="pass">Senha</label>
+                            </dt>
+                            <dd>
+                                <input name="pass" type="text" value="<%= model.pass %>" class="form-control" id="pass" required>
+                            </dd>
+                        </dl>
+                        <dl class="form-group col-xs-4">
+                            <dt>
+                                <label for="db">Banco</label>
+                            </dt>
+                            <dd>
+                                <input name="db" type="text" value="<%= model.pass %>" class="form-control" id="db" required>
+                            </dd>
+                        </dl>
+                        <dl class="form-group col-xs-4">
+                            <dt>
+                                <label for="driver">Adapter</label>
+                            </dt>
+                            <dd>
+                                <select name="driver" class="form-control" id="driver" required>
+                                    <option value="postgresql" <% if(model.driver == 'postgresql') { %>  selected <% } %> >Postgresql</option>
+                                    <option value="mysql" <% if(model.driver == 'mysql') { %>  selected <% } %>>Mysql</option>
+                                </select>
+                            </dd>
+                        </dl>
+                        <dl class="form-group col-xs-12">
+                            <dd class="border-top">
+                                <a href="/database/view/<%= model.id %>" class="pull-left btn btn-primary"><span class="glyphicon glyphicon-backward"></span> Voltar</a>
+                                <button type="submit" class="pull-right btn btn-success"> Editar </button>
+                            </dd>
+                        </dl>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
