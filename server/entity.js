@@ -22,6 +22,9 @@
         //Entity Tag
         require(dir + 'tag')(app);
 
+        //Entity Query
+        require(dir + 'query')(app);
+
         return app;
     }
 

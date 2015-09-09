@@ -25,6 +25,9 @@
         //Controller Tag
         require(dir + 'tag')(app);
 
+        //Controller Query
+        require(dir + 'query')(app);
+
         return app;
     }
 
