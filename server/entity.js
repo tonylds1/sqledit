@@ -19,6 +19,9 @@
         //Entity Category
         require(dir + 'category')(app);
 
+        //Entity Tag
+        require(dir + 'tag')(app);
+
         return app;
     }
 

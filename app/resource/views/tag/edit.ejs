@@ -1,0 +1,37 @@
+<div class="row">
+    <div class="col-center col-xs-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <ol class="breadcrumb">
+                    <li><a href="/tag/">Tag</a></li>
+                    <li><a href="/tag/view/<%= model.id %>">Visualizar</a></li>
+                    <li class="active">Editar</li>
+                </ol>
+            </div>
+            <div class="panel-body">
+                <%- include '/../../message.ejs %>
+                <form action="/tag/update" method="post">
+                    <div class="row">
+                        <dl class="form-group col-xs-4">
+                            <dt>
+                                <label for="name">Nome</label>
+                            </dt>
+                            <dd>
+                                <input name="name" type="text" value="<%= model.name %>" class="form-control" id="name" required>
+                                <input type="hidden" name="id" value="<%= model.id %>">
+                            </dd>
+                        </dl>
+                        <dl class="form-group col-xs-12">
+                            <dd class="border-top">
+                                <a href="/tag/view/<%= model.id %>" class="pull-left btn btn-primary"><span class="glyphicon glyphicon-backward"></span> Voltar</a>
+                                <button type="submit" class="pull-right btn btn-success"> Editar </button>
+                            </dd>
+                        </dl>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+

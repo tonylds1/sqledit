@@ -22,6 +22,9 @@
         //Controller Category
         require(dir + 'category')(app);
 
+        //Controller Tag
+        require(dir + 'tag')(app);
+
         return app;
     }
 
