@@ -1,0 +1,56 @@
+<div class="section-console">
+    <form action="/query/run" method="post" id="console-01" data-console-output="console-output-01">
+        <div class="row">
+            <dl class="form-group col-xs-1">
+                <dd>
+                    <h2>#01</h2>
+                </dd>
+            </dl>
+            <dl class="form-group col-xs-11">
+                <dd>
+                    <a href="" class="btn-query-load btn btn-primary" data-console-form="console-01">
+                        <span class="glyphicon glyphicon-open-file"></span>
+                        &nbsp; Carregar Query
+                    </a>
+                </dd>
+            </dl>
+        </div>
+        <div class="row">
+            <dl class="form-group col-xs-12">
+                <dt>
+                    <label class="sr-only" for="console_02">Console</label>
+                </dt>
+                <dd>
+                    <textarea name="content" class="console form-control" id="console_02" required></textarea>
+                </dd>
+            </dl>
+        </div>
+        <div class="row">
+            <dl class="form-group col-xs-10">
+                <dd>
+                    <select name="database" class="form-control" required>
+                        <option value="">Selecione o banco de dados</option>
+                        <% for(var i=0; i < database.length; i++) { %>
+                        <option value="<%= database[i].id %>"><%= database[i].name %></option>
+                        <% } %>
+                    </select>
+                </dd>
+            </dl>
+            <dl class="form-group col-xs-2">
+                <dd>
+                    <button type="submit" class="btn btn-default btn-success btn-block">
+                        <span class="glyphicon glyphicon-ok"></span>
+                        Executar
+                    </button>
+                </dd>
+            </dl>
+        </div>
+    </form>
+
+    <div id="console-output-01" class="output table-responsive">
+        <table class="table">
+            <thead></thead>
+            <tbody></tbody>
+        </table>
+    </div>
+</div>

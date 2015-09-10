@@ -117,7 +117,13 @@ form fieldset legend{
     text-transform: uppercase;
 }
 
-.output{
+/* Consoles */
+.section-console h2{
+    color: #e65c00;
+    margin-top: -2px;
+}
+
+.section-console .output{
     height: 400px;
     border: 1px solid #ccc;
     overflow: auto;

@@ -14,7 +14,12 @@
          * @return {Object} response
          */
         app.get('/console', function (request, response) {
-            return response.render('console/index');
+
+            app.models.database.find({}).exec(function findOneCB(error, model){
+                return response.render('console/index', {
+                    database: model
+                });
+            });
         });
 
         return app;
