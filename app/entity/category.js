@@ -23,6 +23,10 @@
                 },
                 description: {
                     type: 'string'
+                },
+                query: {
+                    collection: 'query',
+                    via: 'category'
                 }
             }
         });

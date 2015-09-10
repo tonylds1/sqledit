@@ -21,12 +21,18 @@
                     type: 'string',
                     required: true
                 },
+                description: {
+                    type: 'string'
+                },
                 content: {
                     type: 'string',
                     required: true
                 },
                 tags: {
                     type: 'string',
+                },
+                category: {
+                    model: 'category'
                 }
             }
         });

@@ -25,8 +25,9 @@
                             Query
                         </dt>
                         <dd>
-                            <textarea class="console" readonly><%= model.content %></textarea>
-
+                            <code class="html">
+                                <%= model.content %>
+                            </code>
                         </dd>
                     </dl>
                 </div>
@@ -56,6 +57,9 @@
                         <dd class="border-top">
                             <a href="/query" class="pull-left btn btn-primary"><span class="glyphicon glyphicon-backward"></span> Voltar</a>
                             <ul class="pull-right list-unstyled list-inline">
+                                <li>
+                                    <a href="/query/edit/<%= model.id %>" class=" btn btn-primary"><span class="glyphicon glyphicon-edit"></span> Editar</a>
+                                </li>
                                 <li>
                                     <a href="/query/remove/<%= model.id %>" class=" btn btn-danger"><span class="glyphicon glyphicon-remove"></span> Excluir</a>
                                 </li>

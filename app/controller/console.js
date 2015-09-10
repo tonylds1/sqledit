@@ -14,7 +14,6 @@
          * @return {Object} response
          */
         app.get('/console', function (request, response) {
-
             app.models.database.find({}).exec(function findOneCB(error, model){
                 return response.render('console/index', {
                     database: model

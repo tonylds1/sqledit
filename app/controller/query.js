@@ -52,6 +52,89 @@
         });
 
         /**
+         * Add
+         *
+         * @param {Object} request
+         * @param {Object} response
+         * @return {Object} response
+         */
+        app.get('/query/add', function (request, response) {
+            app.models.category.find({}).exec(function findOneCB(error, model){
+                return response.render('query/add', {
+                    category: model
+                });
+            });
+        });
+
+        /**
+         * Edit
+         *
+         * @param {Object} request
+         * @param {Object} response
+         * @return {Object} response
+         */
+        app.get('/query/edit/:id', function (request, response) {
+
+            app.models.query.findOne({id: request.params.id}, function(error, model){
+                if(error){
+                    request.flash('danger', 'Erro ao tentar visualizar registro');
+                    return response.redirect('/query');
+                }
+
+                if(!model){
+                    request.flash('danger', 'Erro, registro inexistente');
+                    return response.redirect('/query');
+                }
+
+                app.models.category.find({}).exec(function findOneCB(error, category){
+                    return response.render('query/edit', {
+                        model: model,
+                        category: category
+                    });
+                });
+            });
+        });
+
+
+        /**
+         * Create
+         *
+         * @param {Object} request
+         * @param {Object} response
+         * @return {Object} response
+         */
+        app.post('/query/create', function (request, response) {
+            app.models.query.create(request.body, function(error, model) {
+                if(error){
+                    request.flash('danger', 'Falha ao tentar realizar cadastro');
+                    return response.redirect('/query/add');
+                }
+
+                request.flash('success', 'Cadastro realizado com sucesso');
+                return response.redirect('/query/add');
+            });
+        });
+
+        /**
+         * Update
+         *
+         * @param {Object} request
+         * @param {Object} response
+         * @return {Object} response
+         */
+        app.post('/query/update', function (request, response) {
+            app.models.query.update({id: request.body.id}, request.body).exec(function (error, model){
+                if(error){
+                    request.flash('danger', 'Falha ao tentar atualizar registro');
+                    return response.redirect('/query/edit/' + request.body.id);
+                }
+
+                request.flash('success', 'Registro atualizado com sucesso');
+                return response.redirect('/query/edit/' + request.body.id);
+            });
+        });
+
+        /**
          * Remove
          *
          * @param {Object} request

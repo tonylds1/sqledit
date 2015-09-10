@@ -1,0 +1,78 @@
+<div class="row">
+    <div class="col-center col-xs-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <ol class="breadcrumb">
+                    <li><a href="/query/">Query</a></li>
+                    <li><a href="/query/view/<%= model.id %>">Visualizar</a></li>
+                    <li class="active">Editar</li>
+                </ol>
+            </div>
+            <div class="panel-body">
+                <%- include '/../../message.ejs %>
+                <form action="/query/update" method="post">
+                    <div class="row">
+                        <dl class="form-group col-xs-4">
+                            <dt>
+                                <label for="name">Nome</label>
+                            </dt>
+                            <dd>
+                                <input name="name" type="text" value="<%= model.name %>" class="form-control" id="name" required>
+                                <input type="hidden" name="id" value="<%= model.id %>">
+                            </dd>
+                        </dl>
+                        <dl class="form-group col-xs-4">
+                            <dt>
+                                <label for="category">Categoria</label>
+                            </dt>
+                            <dd>
+                                <select name="category" type="text" class="form-control" id="category" required>
+                                    <option value="">Selecione uma categoria</option>
+                                    <% for(var i=0; i < category.length; i++) { %>
+                                    <option value="<%= category[i].id %>" <%if (model.category === category[i].id) { %> selected <% } %> ><%= category[i].name %></option>
+                                    <% } %>
+                                </select>
+                            </dd>
+                        </dl>
+                        <dl class="form-group col-xs-4">
+                            <dt>
+                                <label for="tags">Tags</label>
+                            </dt>
+                            <dd>
+                                <input name="tags" type="text" value="<%= model.tags %>" class="form-control" id="tags">
+                            </dd>
+                        </dl>
+                    </div>
+                    <div class="row">
+                        <dl class="form-group col-xs-12">
+                            <dt>
+                                <label for="description">Descriçao</label>
+                            </dt>
+                            <dd>
+                                <textarea name="description" value="<%= model.description %>" class="form-control" id="description"></textarea>
+                            </dd>
+                        </dl>
+                    </div>
+                    <div class="row">
+                        <dl class="form-group col-xs-12">
+                            <dt>
+                                <label for="content">Query</label>
+                            </dt>
+                            <dd>
+                                <textarea name="content" class="console form-control"><%= model.content %></textarea>
+                            </dd>
+                        </dl>
+                        <dl class="form-group col-xs-12">
+                            <dd class="border-top">
+                                <a href="/query/view/<%= model.id %>" class="pull-left btn btn-primary"><span class="glyphicon glyphicon-backward"></span> Voltar</a>
+                                <button type="submit" class="pull-right btn btn-success"> Cadastrar </button>
+                            </dd>
+                        </dl>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
