@@ -166,6 +166,48 @@
             });
         });
 
+        /**
+         * Run
+         *
+         * @param {Object} request
+         * @param {Object} response
+         * @return {Object} response
+         */
+        app.post('/query/run', function (request, response) {
+            var path    = require('path');
+            var dir     = path.join(path.dirname(__dirname), 'adapter/');
+            var adapter = '';
+
+            app.models.database.findOne({id: request.body.database}, function(error, database) {
+                if (database) {
+                    switch (database.driver) {
+                        case 'mysql':
+                            adapter = require(dir + 'mysql');
+
+                            var options = {
+                                host: database.host,
+                                port: database.port,
+                                user: database.user,
+                                password: database.pass,
+                                database: database.db
+                            };
+
+                            var content = request.body.content.toLowerCase();
+
+                            adapter.doCall(options, content, function (data) {
+                                return response.json(data);
+                            });
+
+                            break;
+                        default:
+                            return response.json({});
+                    }
+                }
+
+            });
+
+        });
+
         return app;
     }
 

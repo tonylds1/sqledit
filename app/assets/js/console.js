@@ -24,4 +24,30 @@
             thema: 'monokai'
         });
     });
+
+    $('.console-submit').on('submit', function(event){
+        event.preventDefault();
+
+        //form
+        var action = $(this).attr('action');
+        var method = $(this).attr('method');
+        var data   = $(this).serialize();
+
+        jQuery.ajax({
+            type: method,
+            url: action,
+            data: data,
+            beforeSend: function() {
+                $('#wait-message').modal('toggle');
+            },
+            success: function(data) {
+               console.log(data);
+            },
+            complete: function() {
+                $('#wait-message').modal('toggle');
+            }
+        });
+
+    });
+
 })();
