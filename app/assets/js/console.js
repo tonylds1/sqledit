@@ -31,9 +31,10 @@
         //form
         var action = $(this).attr('action');
         var method = $(this).attr('method');
+        var output = $(this).attr('data-console-output');
         var data   = $(this).serialize();
 
-        jQuery.ajax({
+        $.ajax({
             type: method,
             url: action,
             data: data,
@@ -41,13 +42,30 @@
                 $('#wait-message').modal('toggle');
             },
             success: function(data) {
-               console.log(data);
+                $.each(data.fields, function(index, val) {
+                    $('#' + output + ' thead').append('<th>' + val.name + '</th>');
+                });
+
+                setInterval(function(){
+                    $('#' + output).dynatable({
+                        dataset: {
+                            records: data.rows
+                        },
+                        features: {
+                            paginate: false,
+                            search: false,
+                            recordCount: false,
+                            perPageSelect: false
+                        }
+                    });
+                }, 8000);
+
+
             },
             complete: function() {
                 $('#wait-message').modal('toggle');
             }
         });
-
     });
 
 })();
