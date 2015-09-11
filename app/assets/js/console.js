@@ -34,6 +34,7 @@
         var output = $(this).attr('data-console-output');
         var data   = $(this).serialize();
 
+
         $.ajax({
             type: method,
             url: action,
@@ -42,24 +43,26 @@
                 $('#wait-message').modal('toggle');
             },
             success: function(data) {
+
+                //clean
+                $('#' + output + ' thead tr').html('');
+                //$('#' + output + ' tbody').html('');
+
                 $.each(data.fields, function(index, val) {
-                    $('#' + output + ' thead').append('<th>' + val.name + '</th>');
+                    $('#' + output + ' thead tr').append('<th>' + val.name + '</th>');
                 });
 
-                setInterval(function(){
-                    $('#' + output).dynatable({
-                        dataset: {
-                            records: data.rows
-                        },
-                        features: {
-                            paginate: false,
-                            search: false,
-                            recordCount: false,
-                            perPageSelect: false
-                        }
-                    });
-                }, 8000);
-
+                var dynatable = $('#' + output).dynatable({
+                    dataset: {
+                        records: data.rows
+                    },
+                    features: {
+                        paginate: false,
+                        search: false,
+                        recordCount: false,
+                        perPageSelect: false
+                    }
+                }).data('dynatable');
 
             },
             complete: function() {

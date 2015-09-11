@@ -8,14 +8,14 @@
     module.exports = {
         doCall: function(options, query, callback){
             var mysql = require('mysql');
-
             var connection = mysql.createConnection(options);
-            connection.connect();
 
+            connection.connect();
             connection.query(''+ query +'', function(error, rows, fields) {
                 if(error){
-                    console.log(error);
-                    throw error;
+                    return callback({
+                        error: error
+                    });
                 }
 
                 return callback({

@@ -180,28 +180,20 @@
 
             app.models.database.findOne({id: request.body.database}, function(error, database) {
                 if (database) {
-                    switch (database.driver) {
-                        case 'mysql':
-                            adapter = require(dir + 'mysql');
+                    var options = {
+                        host: database.host,
+                        port: database.port,
+                        user: database.user,
+                        password: database.pass,
+                        database: database.db
+                    };
 
-                            var options = {
-                                host: database.host,
-                                port: database.port,
-                                user: database.user,
-                                password: database.pass,
-                                database: database.db
-                            };
+                    var content = request.body.content.toLowerCase();
+                    var adapter = require(dir + database.driver);
 
-                            var content = request.body.content.toLowerCase();
-
-                            adapter.doCall(options, content, function (data) {
-                                return response.json(data);
-                            });
-
-                            break;
-                        default:
-                            return response.json({});
-                    }
+                    adapter.doCall(options, content, function(data) {
+                        return response.json(data);
+                    });
                 }
 
             });

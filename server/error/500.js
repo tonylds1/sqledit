@@ -22,11 +22,11 @@
 
             //Response Json
             if (request.accepts('json')) {
-                return response.send({ error: 'Not found' });
+                return response.send({ error: 'Fatal erro' });
             }
 
             //Response txt
-            return response.type('txt').send('Not found');
+            return response.type('txt').send('Fatal erro');
         }
 
         app.use(fatal);
