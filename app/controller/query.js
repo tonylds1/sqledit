@@ -200,6 +200,28 @@
 
         });
 
+        /**
+         * Edit
+         *
+         * @param {Object} request
+         * @param {Object} response
+         * @return {Object} response
+         */
+        app.get('/query/list', function (request, response) {
+
+            app.models.query.find({}).populate('category').exec(function(error, model){
+                if(!model){
+                    return response.json({
+                        message: 'Nenhuma query cadastrada'
+                    });
+                }
+
+                return response.json({
+                    model: model
+                });
+            });
+        });
+
         return app;
     }
 

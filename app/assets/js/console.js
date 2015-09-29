@@ -75,4 +75,35 @@
         return false;
     });
 
+    /**
+     * Abrir modal para pesquisar query cadastrada
+     */
+    $('.load-query').on('click', function(){
+        $('#load-query').modal({
+            show: 'false'
+        });
+
+        $.get('/query/list', function(data) {
+
+            var html = '';
+
+            $('#output-query-search tbody').html('');
+
+            $.each(data.model, function(index, value) {
+                console.log(value);
+                var html  = '<tr>';
+                    html += '<td>' + value.category.name + '</td>';
+                    html += '<td>' + value.name + '</td>';
+                    html += '<td>' + value.description + '</td>';
+                    html += '</tr>';
+
+                $('#output-query-search tbody').append(html);
+            });
+
+            return false;
+        }, 'json');
+
+        return false;
+    });
+
 })();
