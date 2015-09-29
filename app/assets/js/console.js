@@ -25,15 +25,11 @@
         });
     });
 
-    $('.console-submit').on('submit', function(event){
-        event.preventDefault();
-
-        //form
+    $('.console-submit').on('submit', function(){
         var action = $(this).attr('action');
         var method = $(this).attr('method');
         var output = $(this).attr('data-console-output');
         var data   = $(this).serialize();
-
 
         $.ajax({
             type: method,
@@ -44,9 +40,13 @@
             },
             success: function(data) {
 
-                //clean
+                if(data.error){
+                    var text  = 'Erro: ' + data.error.code;
+                    alert(text);
+                    return false;
+                }
+
                 $('#' + output + ' thead tr').html('');
-                //$('#' + output + ' tbody').html('');
 
                 $.each(data.fields, function(index, val) {
                     $('#' + output + ' thead tr').append('<th>' + val.name + '</th>');
@@ -64,11 +64,15 @@
                     }
                 }).data('dynatable');
 
+                return false;
+
             },
             complete: function() {
                 $('#wait-message').modal('toggle');
             }
         });
+
+        return false;
     });
 
 })();
