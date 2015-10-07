@@ -22,6 +22,18 @@
                             </dd>
                         </dl>
 
+                        <dl class="form-group col-xs-4">
+                            <dt>
+                                <label for="nivel">Nivel de acesso</label>
+                            </dt>
+                            <dd>
+                                <select name="admin" class="form-control" id="username" required>
+                                    <option value="0" <% if (model.admin == 0) { %> selected <% } %>> Padrão </option>
+                                    <option value="1" <% if (model.admin == 1) { %> selected <% } %>> Administrador </option>
+                                </select>
+                            </dd>
+                        </dl>
+
                         <dl class="form-group col-xs-12">
                             <dd class="border-top">
                                 <a href="/user/view/<%= model.id %>" class="pull-left btn btn-primary"><span class="glyphicon glyphicon-backward"></span> Voltar</a>

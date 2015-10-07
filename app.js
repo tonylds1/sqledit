@@ -49,6 +49,12 @@
     var entity = require('./server/entity')(app);
 
     /**
+     * Configurações de segurança
+     */
+    var security = require('./server/security')(app);
+
+
+    /**
      * Definição dos controllers
      */
     var controller = require('./server/controller')(app);

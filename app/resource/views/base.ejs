@@ -24,12 +24,13 @@
 </head>
 <body>
 
+<% if (locals.user) { %>
 <header>
   <nav class="navbar navbar-default navbar-static-top">
     <div class="container-fluid">
       <div class="row">
         <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"  aria-controls="navbar">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
@@ -44,17 +45,21 @@
                 Consoles
               </a>
             </li>
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" >
-                <span class="glyphicon glyphicon-sort" ></span>
-                Controle de acesso
-                <span class="caret"></span>
-              </a>
-              <ul class="dropdown-menu" role="menu">
-                <li><a href="/access">Lista de acesso</a></li>
-                <li><a href="/user">Usuários</a></li>
-              </ul>
-            </li>
+
+            <% if (locals.user.admin) { %>
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" >
+                  <span class="glyphicon glyphicon-sort" ></span>
+                  Controle de acesso
+                  <span class="caret"></span>
+                </a>
+                <ul class="dropdown-menu" role="menu">
+                  <li><a href="/access">Lista de acesso</a></li>
+                  <li><a href="/user">Usuários</a></li>
+                </ul>
+              </li>
+            <% } %>
+
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" >
                 <span class="glyphicon glyphicon-plus" ></span>
@@ -62,18 +67,28 @@
                 <span class="caret"></span>
               </a>
               <ul class="dropdown-menu" role="menu">
-                <li><a href="/category">Categorias</a></li>
-                <li><a href="/tag">Tags</a></li>
+                <% if (locals.user.admin) { %>
+                  <li><a href="/category">Categorias</a></li>
+                  <li><a href="/tag">Tags</a></li>
+                  <li><a href="/database">Banco de dados</a></li>
+                <% } %>
                 <li><a href="/query">Querys</a></li>
-                <li><a href="/database">Banco de dados</a></li>
               </ul>
             </li>
           </ul>
+
+          <a href="/user/logout" class="btn btn-danger pull-right">
+            <span class="glyphicon glyphicon-log-out" ></span>
+            Sair
+          </a>
         </div>
+
+
       </div>
     </div>
   </nav>
 </header>
+<% } %>
 
 <div class="container-fluid">
   <div class="row">

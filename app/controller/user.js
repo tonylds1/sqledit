@@ -63,25 +63,6 @@
         });
 
         /**
-         * Create
-         *
-         * @param {Object} request
-         * @param {Object} response
-         * @return {Object} response
-         */
-        app.post('/user/create', function (request, response) {
-            app.models.user.create(request.body, function(error, model) {
-                if(error){
-                    request.flash('danger', 'Falha ao tentar realizar cadastro');
-                    return response.redirect('/user/add');
-                }
-
-                request.flash('success', 'Cadastro realizado com sucesso');
-                return response.redirect('/user/add');
-            });
-        });
-
-        /**
          * Edit
          *
          * @param {Object} request
@@ -158,8 +139,6 @@
             });
         });
 
-
-
         /**
          * Signin
          *
@@ -213,12 +192,64 @@
                     }
 
                     request.session.user = {
-                        logged: true,
-                        admin: result.admin
+                        admin: model.admin
                     };
 
                     return response.redirect('/console');
                 });
+            });
+        });
+
+        /**
+         * Store - Cadastro interno
+         *
+         * @param {Object} request
+         * @param {Object} response
+         * @return {Object} response
+         */
+        app.post('/user/store', function (request, response) {
+            app.models.access.findOne({username: request.body.username}).exec(function(error, model){
+                if(error){
+                    request.flash('danger', 'Ocorreu uma falha no sistema');
+                    return response.redirect('/');
+                }
+
+                if(!model){
+                    request.flash('danger', 'É necessario cadastrar o login na lista de acesso antes de cadastrar o usuário');
+                    return response.redirect('/user/add');
+                }
+
+                app.models.user.findOne({username: request.body.username}).exec(function(error, user){
+                    if(error){
+                        request.flash('danger', 'Ocorreu uma falha no sistema');
+                        return response.redirect('/user/add');
+                    }
+
+                    if(user){
+                        request.flash('danger', 'Usuario ja cadastrado');
+                        return response.redirect('/user/add');
+                    }
+
+                    app.get('bcrypt').genSalt(10, function(err, salt) {
+                        app.get('bcrypt').hash(request.body.password, salt, function(err, hash) {
+                            var data = {
+                                username: request.body.username,
+                                password: hash
+                            };
+
+                            app.models.user.create(data, function(error, model) {
+                                if(error){
+                                    request.flash('danger', 'Ocorreu uma falha no sistema');
+                                    return response.redirect('/user/');
+                                }
+
+                                request.flash('success', 'Cadastro realizado com sucesso');
+                                return response.redirect('/user/add');
+                            });
+                        });
+                    });
+                });
+
             });
         });
 
@@ -230,8 +261,7 @@
          * @return {Object} response
          */
         app.post('/user/create', function (request, response) {
-
-            app.models.user.findOne({username: request.body.username}).exec(function findOneCB(error, model){
+            app.models.access.findOne({username: request.body.username}).exec(function(error, model){
                 if(error){
                     request.flash('danger', 'Ocorreu uma falha no sistema');
                     return response.redirect('/');
@@ -242,29 +272,51 @@
                     return response.redirect('/user/signup');
                 }
 
-                app.get('bcrypt').genSalt(10, function(err, salt) {
-                    app.get('bcrypt').hash(request.body.password, salt, function(err, hash) {
-                        var data = {
-                            username: request.body.username,
-                            password: hash
-                        };
+                app.models.user.findOne({username: request.body.username}).exec(function(error, user){
+                    if(error){
+                        request.flash('danger', 'Ocorreu uma falha no sistema');
+                        return response.redirect('/');
+                    }
 
-                        app.models.user.create(data, function(error, model) {
-                            if(error){
-                                request.flash('danger', 'Ocorreu uma falha no sistema');
+                    if(user){
+                        request.flash('danger', 'Usuario ja cadastrado');
+                        return response.redirect('/user/signup');
+                    }
+
+                    app.get('bcrypt').genSalt(10, function(err, salt) {
+                        app.get('bcrypt').hash(request.body.password, salt, function(err, hash) {
+                            var data = {
+                                username: request.body.username,
+                                password: hash
+                            };
+
+                            app.models.user.create(data, function(error, model) {
+                                if(error){
+                                    request.flash('danger', 'Ocorreu uma falha no sistema');
+                                    return response.redirect('/');
+                                }
+
+                                request.flash('success', 'Cadastro realizado com sucesso');
                                 return response.redirect('/');
-                            }
-
-                            request.flash('success', 'Cadastro realizado com sucesso');
-                            return response.redirect('/');
+                            });
                         });
                     });
                 });
 
             });
+        });
 
-
-
+        /**
+         * Logout
+         *
+         * @param {Object} request
+         * @param {Object} response
+         * @return {Object} response
+         */
+        app.get('/user/logout', function (request, response) {
+            request.session.destroy(function(err) {
+                return response.redirect('/');
+            })
         });
 
         return app;

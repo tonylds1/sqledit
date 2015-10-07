@@ -9,7 +9,7 @@
             </div>
             <div class="panel-body">
                 <%- include '/../../message.ejs %>
-                <form action="/user/create" method="post">
+                <form action="/user/store" method="post">
                     <div class="row">
                         <dl class="form-group col-xs-4">
                             <dt>
@@ -25,6 +25,18 @@
                             </dt>
                             <dd>
                                 <input name="password" type="password" class="form-control" id="password" required>
+                            </dd>
+                        </dl>
+
+                        <dl class="form-group col-xs-4">
+                            <dt>
+                                <label for="nivel">Nivel de acesso</label>
+                            </dt>
+                            <dd>
+                                <select name="admin" class="form-control" id="username" required>
+                                    <option value="0"> Padrão </option>
+                                    <option value="1"> Administrador </option>
+                                </select>
                             </dd>
                         </dl>
                         <dl class="form-group col-xs-12">

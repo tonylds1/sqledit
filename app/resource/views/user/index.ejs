@@ -21,6 +21,7 @@
                         <thead>
                         <tr>
                             <th>Nome</th>
+                            <th>Nivel de acesso</th>
                             <th></th>
                         </tr>
                         </thead>
@@ -28,6 +29,7 @@
                         <% for(var i=0; i < grid.length; i++) { %>
                         <tr>
                             <td><%= grid[i].username %></td>
+                            <td><% if (grid[i].admin == 0) { %> Padrão <% } else { %> Administrador <% } %></td>
                             <td class="text-right">
                                 <a href="/user/view/<%= grid[i].id %>" class="btn btn-success" title="Visualizar registro"> <span class="glyphicon glyphicon-eye-open"></span> </a>
                             </td>
