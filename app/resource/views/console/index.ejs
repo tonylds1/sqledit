@@ -22,12 +22,30 @@
                     <h4 class="modal-title">Carregar query</h4>
                 </div>
                 <div class="modal-body">
+                    <form action="/query/search" method="post" class="form-search">
+                        <div class="row">
+                            <dl class="form-group col-xs-12">
+                                <dt>
+                                    <label for="busca" class="sr-only">Buscar</label>
+                                </dt>
+                                <dd>
+                                    <input name="busca" type="text" class="form-control" id="busca" placeholder="Digite sua pesquisa" required>
+                                </dd>
+                            </dl>
+                            <dl class="form-group col-xs-12">
+                                <dd class="border-top">
+                                    <button type="submit" class="pull-right btn btn-success"> Pesquisar </button>
+                                </dd>
+                            </dl>
+                        </div>
+                    </form>
                     <table id="output-query-search" class="table-grid table table-striped table-bordered table-hover">
                         <thead>
                             <tr>
                                 <th>Categoria</th>
                                 <th>Nome</th>
                                 <th>Descrição</th>
+                                <th>Ação</th>
                             </tr>
                         </thead>
                         <tbody>

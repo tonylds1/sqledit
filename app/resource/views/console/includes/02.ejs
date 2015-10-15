@@ -1,5 +1,5 @@
 <div class="section-console">
-    <form action="/query/run" method="post" id="console-02" data-console-output="console-output-02">
+    <form action="/query/run" method="post" class="console-submit" id="console-02" data-console-output="console-output-02">
         <div class="row">
             <dl class="form-group col-xs-1">
                 <dd>
@@ -8,7 +8,7 @@
             </dl>
             <dl class="form-group col-xs-11">
                 <dd>
-                    <a href="" class="btn-query-load btn btn-primary" data-console-form="console-02">
+                    <a href="" class="btn-query-load btn btn-primary load-query" data-console-form="console_textarea_02">
                         <span class="glyphicon glyphicon-open-file"></span>
                         &nbsp; Carregar Query
                     </a>
@@ -18,10 +18,10 @@
         <div class="row">
             <dl class="form-group col-xs-12">
                 <dt>
-                    <label class="sr-only" for="console_02">Console</label>
+                    <label class="sr-only" for="console_textarea_02">Console</label>
                 </dt>
                 <dd>
-                    <textarea name="content" class="console form-control" id="console_02" required></textarea>
+                    <textarea name="content" class="console form-control" id="console_textarea_02"></textarea>
                 </dd>
             </dl>
         </div>
@@ -47,9 +47,11 @@
         </div>
     </form>
 
-    <div id="console-output-02" class="output table-responsive">
-        <table class="table">
-            <thead></thead>
+    <div class="output table-responsive">
+        <table id="console-output-02" class="table-grid table table-striped table-bordered table-hover">
+            <thead>
+            <tr></tr>
+            </thead>
             <tbody></tbody>
         </table>
     </div>

@@ -201,21 +201,37 @@
         });
 
         /**
-         * Edit
+         * Search query
          *
          * @param {Object} request
          * @param {Object} response
          * @return {Object} response
          */
-        app.get('/query/list', function (request, response) {
+        app.post('/query/search', function (request, response) {
+            var data = {
+                or : [
+                    {
+                        name: {'like': '%' + request.body.busca + '%'}
+                    }
+                ]
+            };
 
-            app.models.query.find({}).populate('category').exec(function(error, model){
-                if(!model){
-                    return response.json({
-                        message: 'Nenhuma query cadastrada'
-                    });
-                }
+            app.models.query.find({where: data, sort: 'id DESC'}).populate('category').exec(function(error, model){
+                return response.json({
+                    model: model
+                });
+            });
+        });
 
+        /**
+         * Query selected
+         *
+         * @param {Object} request
+         * @param {Object} response
+         * @return {Object} response
+         */
+        app.get('/query/selected/:id', function (request, response) {
+            app.models.query.findOne({id: request.params.id}).populate('category').exec(function(error, model){
                 return response.json({
                     model: model
                 });
